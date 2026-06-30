@@ -4,11 +4,10 @@ USE sql_practice;
 
 -- 1. 统计公司总员工数、平均工资
 -- 你的答案：
-
+SELECT COUNT(*) AS '总员工数', AVG(salary) AS '平均工资' FROM emp;
 
 -- 2. 每个部门的平均工资
 -- 你的答案：
-
 
 -- 3. 平均工资高于 8000 的部门（HAVING）
 -- 你的答案：

@@ -10,10 +10,11 @@
 
 ### 练习
 ```sql
--- 1. 每个部门按工资排名
--- 2. 查每个部门工资排名前 2 的员工
--- 3. 查每个员工与上个月销售额的环比（LAG）
--- 4. 按分类统计累计销售额
+-- 1. 每个部门按工资从高到低排名（ROW_NUMBER）
+-- 2. 每个部门工资最高的员工（RANK）
+-- 3. 查每个员工与同部门最高工资的差距（MAX OVER PARTITION BY）
+-- 4. 每个部门工资排前 2 的员工（DENSE_RANK）
+-- 5. 按工资从高到低排序，计算累计工资占比
 ```
 
 ---
@@ -46,14 +47,9 @@
 
 **示例用法：**
 ```bash
-# Node.js
+cd code && npm install
 node query.js -f query.sql -o table
-
-# Python
-python query.py -f query.sql -o csv
-
-# Go
-go run query.go -f query.sql -o table
+node query.js -f query.sql -o csv
 ```
 
 ## 检查清单

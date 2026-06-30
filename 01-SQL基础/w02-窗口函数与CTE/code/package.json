@@ -1,0 +1,9 @@
+{
+  "name": "sql-query-cli",
+  "version": "1.0.0",
+  "description": "SQL 查询工具箱 CLI",
+  "dependencies": {
+    "minimist": "^1.2.8",
+    "mysql2": "^3.6.0"
+  }
+}

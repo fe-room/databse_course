@@ -16,31 +16,15 @@
 
 ### Docker 搭建主从
 
-**主库配置 `docker/master.cnf`：**
-```ini
-[mysqld]
-server_id = 1
-log_bin = mysql-bin
-binlog_format = ROW
-```
+配置文件在 `docker/` 目录下，使用 Docker Compose 一键启动：
 
-**从库配置 `docker/slave.cnf`：**
-```ini
-[mysqld]
-server_id = 2
-```
-
-**启动：**
 ```bash
-# 主库
-docker run --name mysql-master -p 3307:3306 \
-  -v $(pwd)/docker/master.cnf:/etc/mysql/conf.d/my.cnf \
-  -e MYSQL_ROOT_PASSWORD=root -d mysql:8.0
+# 启动主从
+docker compose -f docker/docker-compose.yml up -d
 
-# 从库
-docker run --name mysql-slave -p 3308:3306 \
-  -v $(pwd)/docker/slave.cnf:/etc/mysql/conf.d/my.cnf \
-  -e MYSQL_ROOT_PASSWORD=root -d mysql:8.0
+# 查看日志确认启动成功
+docker logs mysql-master
+docker logs mysql-slave
 ```
 
 **配置复制：**
